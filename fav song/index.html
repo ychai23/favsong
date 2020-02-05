@@ -1,0 +1,192 @@
+<!doctype html>
+<htmlass="no-js" lang=head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <style>
+    body {
+      text-align: center;
+      background-color: rgb(224, 224, 224);
+    }
+    img {
+      width: 25%;
+    }
+    form {
+      background-color: rgb(153, 204, 255);
+      border: 1px solid black;
+      padding: 25px 50px 50px 100px;
+    }
+    a {
+      font-size: 32px;
+      font-style: italic;
+      border-style: dotted;
+    }
+    #other-songs {
+      text-align: left;
+    }
+    #comments{
+      text-align: left;
+    }
+    p2 {
+      font-size: 15px;
+    }
+    p {
+      font-size: 25px;
+      font-family: "Times New Roman", Times, serif;
+      color: red;
+     }
+    p2:hover
+    {
+      color: rgb(224, 224, 224);
+    }
+  </style>
+  <body>
+  <img src="https://images.rapgenius.com/bf5c52d97920ac3614d7b0a2ee66a03c.634x634x1.jpg" alt="cover."><br>
+  <br><a href="https://www.youtube.com/watch?v=8jzDnsjYv9A" target="_blank">Writings on the wall</a>
+  <p>Sam Smith</p>
+  <p2>I've been here before
+    <br>But always hit the floor
+    <br>I've spent a lifetime running
+    <br>And I always get away
+    <br>But with you I'm feeling something
+    <br>That makes me want to stay
+    <br>I'm prepared for this
+    <br>I never shoot to miss
+    <br>But I feel like a storm is coming
+    <br>If I'm gonna make it through the day
+    <br>Then there's no more use in running
+    <br>This is something I gotta face
+    <br>If I risk it all
+    <br>Could you break my fall?
+    <br>How do I live? How do I breathe?
+    <br>When you're not here I'm suffocating
+    <br>I want to feel love, run through my blood
+    <br>Tell me is this where I give it all up?
+    <br>For you I have to risk it all
+    <br>'Cause the writing's on the wall
+    <br>A million shards of glass
+    <br>That haunt me from my past
+    <br>As the stars begin to gather
+    <br>And the light begins to fade
+    <br>When all hope begins to shatter
+    <br>Know that I won't be afraid
+    <br>If I risk it all
+    <br>Could you break my fall?
+    <br>How do I live? How do I breathe?
+    <br>When you're not here I'm suffocating
+    <br>I want to feel love, run through my blood
+    <br>Tell me is this where I give it all up?
+    <br>For you I have to risk it all
+    <br>'Cause the writing's on the wall
+    <br>The writing's on the wall
+    <br>How do I live? How do I breathe?
+    <br>When you're not here I'm suffocating
+    <br>I want to feel love, run through my blood
+    <br>Tell me is this where I give it all up?
+    <br>How do I live? How do I breathe?
+    <br>When you're not here I'm suffocating
+    <br>I want to feel love, run through my blood
+    <br>Tell me is this where I give it all up?
+    <br>For you I have to risk it all
+    <br>'Cause the writing's on the wall</p2><br>
+  </body>
+
+  <div id="other-songs">
+    <br>Other Songs by Sam Smith
+      <ul>
+        <li>Too Good At Goodbyes</li>
+        <li>Dancing with A Stranger</li>
+        <li>I Am Not The Only One</li>
+      </ul>
+  </div>
+
+    <form action="/submit comment">
+      <b>Nickname: </b><input type="text" placeholder="Nickname" id="name" required><br>
+      <label for="upvote"><input id="upvote" type="radio" name="Vote" value="upvote" required> Upvote</label>
+      <label for="downvote"><input id="downvote" type="radio" name="Vote" value="downvote" required> Downvote</label><br>
+      <textarea cols="50" rows="5" id="comment" placeholder="Leave Your Comments Here" required></textarea><br>
+      <button type="submit" onclick="showComments()">Submit</button>
+    </form>
+
+  <div id="comments">
+    <br>Comments
+    <ul>
+
+    </ul>
+  </div>
+
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+      $(document).ready();
+      function showComments() {
+          let v = '';
+          if($("#name").val() == ""){
+              alert("Please enter your nickname.");
+          }
+          if ($("#upvote").prop("checked") == false && $("#downvote").prop("checked") == false){
+              alert("Please vote.");
+          }
+          if ($("#comment").val() == ""){
+              alert("Please comment.");
+          }
+          if ($("#upvote").prop("checked") == true) {
+              v = $("#name").val() + " upvoted and said " + "\"" + $("#comment").val() + "\"";
+          }
+          if ($("#downvote").prop("checked") == true){
+              v = $("#name").val() + " downvoted and said " + "\"" + $("#comment").val() + "\"";
+          }
+          $("#comments").append(v);
+          $('#comment').val('');
+          $("#downvote").prop("checked", false);
+          $("#upvote").prop("checked", false);
+          $("#name").val('');
+          event.preventDefault()
+      }
+
+      const state = {
+          userComments: [
+              {
+                  nickName: 'Toad',
+                  vote: 'upvote',
+                  comment: 'Excited!',
+              },
+              {
+                  nickName: 'Toad',
+                  vote: 'downvote',
+                  comment: 'I am angry!',
+              },
+          ],
+      };
+      showComments();
+  </script>
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</ht
